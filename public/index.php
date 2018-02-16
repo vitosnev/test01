@@ -4,21 +4,23 @@
 <head>
 	<meta charset="utf-8">
 	<title>Тест</title>
-	<link href="/css/layout.css" media="screen" rel="stylesheet" type="text/css" > 
 	<link href="http://bootstrap-3.ru/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/layout.css" media="screen" rel="stylesheet" type="text/css" > 
+	
 </head>
 <body>
-	<h2>Новости Ленты.ру</h2>
+	<h1>Новости Ленты.ру</h1>
+	<div class="wraptable"> 
 	<table>
 	  <thead>
 	    <tr>
 	      <th data-bind="css: {toUp: sortToUpT, toDown: sortToDownT, toNone: sortToUpT == sortToDownT},
-	                     click: sortByTime">Дата время</th>
-	      <th>Изображение</th>
+	                     click: sortByTime" style="width:130px;">Дата время</th>
+	      <th style="width:150px;">Изображение</th>
 	      <th data-bind="css: {toUp: sortToUpH, toDown: sortToDownH, toNone: sortToUpH == sortToDownH},
-	                     click: sortByHead">Название</th>
-	      <th>Краткое описание</th>
-	      <th>Ccылка</th>
+	                     click: sortByHead" style="width:200px;">Название</th>
+	      <th style="width:500px;">Краткое описание</th>
+	      <th style="width:100px;">Ccылка</th>
 	    <tr>
 	  </thead>
 	  <tbody data-bind="foreach: news">
@@ -38,7 +40,7 @@
 	    </tr>
 	  </tbody>
 	</table>
-	
+	</div>
 	<button class="btn btn-success" data-bind="click: $root.refresh">Обновить</button>
 	
 	<!-- модальное окно -->
