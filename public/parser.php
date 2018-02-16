@@ -27,11 +27,12 @@
 	foreach($searchNodes->childNodes as $node){
 		$new = array();
 		if ($node->getAttribute("class")!=="item news") continue; // Пропускаем рекламные вставки
+		if ($node->firstChild->firstChild->getAttribute("class")=="item__rubric item__rubric_logo-motor") continue; // Пропускаем с motor 
 		$link_node =	$node->childNodes[1]->firstChild->firstChild;
 		$link = $link_node->getAttribute("href"); 
 		$header = $link_node->nodeValue;
 		//echo $link."<br>";
-		$new["link"]=$link;				// получаем ссылку на новость
+		$new["link"]="https://lenta.ru".$link;				// получаем ссылку на новость
 		$new["header"]=$header;   // и заголовок
 		//echo $header."<br>";
 		$url = $path.$link;
@@ -53,13 +54,18 @@
 			$time = $time_node->childNodes[0]->getAttribute("datetime");
 		}
 		//echo $time."<br>";
-		$new["time"] = $time;
+		if (empty($time)) continue;
+		$datetime = new DateTime($time);
+		$datetime->setTimezone(new DateTimeZone('Europe/Moscow'));
+		$new["time"] = $datetime->format('d.m.Y H:i');
 		
 		$image_nodes = $page->getElementsByTagName("img");       // вытаскиваем картинку
 		foreach($image_nodes as $image_node){
-			if ($image_node->getAttribute("class")!="g-picture") continue;
+			//if ($image_node->getAttribute("class")!="g-picture") continue;
+			if ($image_node->getAttribute("rel")!="image_src") continue;
 			$picture_path = $image_node->getAttribute("src");
 		}
+		if (empty($picture_path)) $picture_path="";
 		$new["picture_path"] = $picture_path;
 		//echo $picture_path."<br>";
 		

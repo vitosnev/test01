@@ -1,0 +1,9 @@
+tr:hover {
+  color: #444;
+  background-color: #C6D4E1;
+}
+
+tr.selected {
+  color: #fff;
+  background-color: #44749D;
+} 
