@@ -40,8 +40,12 @@
 	    </tr>
 	  </tbody>
 	</table>
+	<div class="wraptable_ovrlay" data-bind="css: {loading: isLoad}">
+	  <img src="/loading.gif">
 	</div>
-	<button class="btn btn-success" data-bind="click: $root.refresh">Обновить</button>
+	</div>
+	
+	<button class="btn btn-success" data-bind="disable: isLoad, click: $root.refresh">Обновить</button>
 	
 	<!-- модальное окно -->
 	<div id="modal" data-bind="with: newinmodal">

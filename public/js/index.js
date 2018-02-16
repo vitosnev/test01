@@ -32,6 +32,7 @@ function NewsViewModel(){
   self.news = ko.observableArray();
   self.chosenRowId = ko.observable();
   self.newinmodal = ko.observable();
+  self.isLoad = ko.observable();
   
   self.sortToUpT = ko.observableArray(false);
   self.sortToDownT = ko.observableArray(false);
@@ -40,13 +41,17 @@ function NewsViewModel(){
   
   
   self.refresh = function(){
+    self.isLoad(true);
     $.getJSON("/parser.php", function(data){
       self.news(data);
+      self.isLoad(false);
     });
   }
     
+  self.isLoad(true);
   $.getJSON("/parser.php", function(data){
     self.news(data);
+    self.isLoad(false);
   })
   
   self.select = function(row){
