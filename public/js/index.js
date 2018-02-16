@@ -32,6 +32,12 @@ function NewsViewModel(){
   self.news = ko.observable();
   self.chosenRowId = ko.observable();
   self.newinmodal = ko.observable();
+  
+  self.refresh = function(){
+    $.getJSON("/parser.php", function(data){
+      self.news(data);
+    });
+  }
     
   $.getJSON("/parser.php", function(data){
     self.news(data);

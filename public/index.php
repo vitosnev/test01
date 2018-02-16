@@ -37,7 +37,7 @@
 	  </tbody>
 	</table>
 	
-	<button class="btn btn-lg btn-success"> Обновить </button>
+	<button class="btn btn-lg btn-success" data-bind="click: $root.refresh">Обновить</button>
 	
 	<!-- модальное окно -->
 	<div id="modal" data-bind="with: newinmodal">
