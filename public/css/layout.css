@@ -1,0 +1,146 @@
+tr:hover {
+  color: #444;
+  background-color: #C6D4E1;
+}
+
+tr.selected {
+  color: #fff;
+  background-color: #44749D;
+}
+
+#modal{
+  width: 850px;
+  height: 600px;
+  border-radius: 5px;
+  border: 3px solid #000;
+  background: #fff;
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  margin-top: -300px;
+  margin-left: -425px;
+  display: none;
+  opacity: 0;
+  z-index: 5;
+  padding: 20px 10px;
+}
+
+#modal #modal_close{
+  width: 21px;
+  height: 21px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  display: block;
+}
+
+#overlay {
+  z-index: 3;
+  position: fixed;
+  background-color: #000;
+  opacity: 0.8;
+  -moz-opacity:0.8;
+  filter:alpha(opacity=80);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  display: none;
+}
+
+.time {
+  color: #444;
+  font-size: 12px;
+  margin: 5px; 
+}
+
+.image {
+  display: inline;
+  width: 450px;
+  margin: 10px;
+  float: left;
+}
+
+.text {
+  margin: 10px;
+  text-align: left;
+}
+
+th {
+  margin: 5px;  
+  padding: 5px;
+  height: 50px;
+  text-align: center;
+  background-color: #444;
+  color: #fff;
+}
+
+th.toUp:after {
+  content:"\ \25B2";
+}
+
+th.toDown:after {
+  content:"\ \25BC";
+}
+
+th.toUp.toDown:after {
+  content:" ";
+}
+
+h1 {
+
+}
+
+.wraptable{
+  height: 600px; 
+  overflow: auto;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.wraptable_ovrlay{
+  z-index: 10;
+  position: absolute;
+  background-color: #fff;
+  opacity: 0.8;
+  -moz-opacity:0.8;
+  filter:alpha(opacity=80);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.wraptable_ovrlay img{
+  width: 640px;
+  height: 360px;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  margin-top: -180px;
+  margin-left: -320px;
+  z-index: 11;
+}
+
+.wraptable_ovrlay.loading{
+  display: block;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #444;
+  text-align: left;
+}
+
+td, th {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+html {
+  text-align: center;
+}
