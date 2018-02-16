@@ -67,3 +67,23 @@ tr.selected {
   margin: 10px;
 }
 
+th {
+  margin: 5px;  
+  padding: 5px;
+  height: 50px;
+  text-align: center;
+  background-color: #444;
+  color: #fff;
+}
+
+th.toUp:after {
+  content:"\ \25B2";
+}
+
+th.toDown:after {
+  content:"\ \25BC";
+}
+
+th.toUp.toDown:after {
+  content:" ";
+}

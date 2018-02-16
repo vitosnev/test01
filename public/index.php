@@ -12,9 +12,11 @@
 	<table>
 	  <thead>
 	    <tr>
-	      <th>Дата/время</th>
+	      <th data-bind="css: {toUp: sortToUpT, toDown: sortToDownT, toNone: sortToUpT == sortToDownT},
+	                     click: sortByTime">Дата время</th>
 	      <th>Изображение</th>
-	      <th>Название</th>
+	      <th data-bind="css: {toUp: sortToUpH, toDown: sortToDownH, toNone: sortToUpH == sortToDownH},
+	                     click: sortByHead">Название</th>
 	      <th>Краткое описание</th>
 	      <th>Ccылка</th>
 	    <tr>
@@ -37,7 +39,7 @@
 	  </tbody>
 	</table>
 	
-	<button class="btn btn-lg btn-success" data-bind="click: $root.refresh">Обновить</button>
+	<button class="btn btn-success" data-bind="click: $root.refresh">Обновить</button>
 	
 	<!-- модальное окно -->
 	<div id="modal" data-bind="with: newinmodal">

@@ -29,9 +29,15 @@ ko.bindingHandlers.click = {
 function NewsViewModel(){
   var self = this;
   
-  self.news = ko.observable();
+  self.news = ko.observableArray();
   self.chosenRowId = ko.observable();
   self.newinmodal = ko.observable();
+  
+  self.sortToUpT = ko.observableArray(false);
+  self.sortToDownT = ko.observableArray(false);
+  self.sortToUpH = ko.observableArray(false);
+  self.sortToDownH = ko.observableArray(false);
+  
   
   self.refresh = function(){
     $.getJSON("/parser.php", function(data){
@@ -53,6 +59,42 @@ function NewsViewModel(){
       
       viewNew();
     });        
+  }
+  
+  self.sortByTime = function(){
+    self.sortToUpH(false);
+    self.sortToDownH(false);
+    if (self.sortToUpT()){
+      self.news.sort(function(a,b){
+        return a.time < b.time ? 1 : -1;
+      });
+      self.sortToUpT(false);
+      self.sortToDownT(true);
+    } else {
+      self.news.sort(function(a,b){
+        return a.time > b.time ? 1 : -1;
+      });
+      self.sortToUpT(true);
+      self.sortToDownT(false);
+    } 
+  }
+  
+  self.sortByHead = function(){
+    self.sortToUpT(false);
+    self.sortToDownT(false);
+    if (self.sortToUpH()){
+      self.news.sort(function(a,b){
+        return a.header < b.header ? 1 : -1;
+      });
+      self.sortToUpH(false);
+      self.sortToDownH(true);
+    } else {
+      self.news.sort(function(a,b){
+        return a.header > b.header ? 1 : -1;
+      });
+      self.sortToUpH(true);
+      self.sortToDownH(false);
+    }     
   }
 }
 
